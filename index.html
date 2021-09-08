@@ -1,11 +1,89 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-</head>
-<body>
-	<label for="input1">Nombre Del Propietario: </label>
-	<input type="password" id="input1" name="">
-</body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tutorial Bootstarp</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="text-center">
+                <h1>Ciudadanos de 4 Patas</h1>
+                <p>Este es el formulario que debe diligenciar para registrar una nueva mascota</p>
+            </div>
+
+            <div class="form-group was-validated">
+                <div class="row">
+                    <div class="col-xl-6 col-sm-12">
+                        <label for="date-input" id="label-input1">Fecha de registro:</label><input class="form-control" id="date-input" type="date" required/>
+                    </div>
+                    <!--col-xl: tamaño de pantalla mayor o igual a 1200px
+                        col-lg: tamaño de pantalla mayor o igual a 1200px
+                        col-md: tamaño de pantalla mayor o igual a 768px
+                        col-sm: tamaño de pantalla mayor o igual a 576px
+                        col: tamaño de pantalla menor a 576px-->
+                    <div class="col-xl-6 col-sm-12">
+                        <label for="owner-input" id="label-input2">Nombre de del propietario:</label><input class="form-control" id="owner-input" type="text" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-sm-12">
+                        <label for="petname-input"id="label-input3">Nombre de la mascota:</label><input class="form-control" id="petname-input" type="text" required/>
+                    </div>
+                    <div class="col-xl-6 col-sm-12">
+                        <label for="petage-input" id="label-input4">Edad de la mascota:</label><input class="form-control" id="petage-input" type="number" min="0" required/> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-sm-12">
+                        <label for="petspecies-input"id="label-input5">Especies:</label><select class="form-control" id="petspecies-input" required>
+                        <option></option>
+                        <option>Perro</option>
+                        <option>Gato</option>   
+                        </select>
+                    </div>
+                    <div class="col-xl-6 col-sm-12">
+                        <label for="petsize-input" id="label-input6">Tamaño:</label><select class="form-control" id="petsize-input" required>
+                        <option></option>
+                        <option>Miniatura</option>
+                        <option>Pequeño</option>
+                        <option>Mediano</option>
+                        <option>Grande</option>
+                        </select>
+                    </div>
+                </div>
+                <br />
+                <input id="petsave-button" class="btn btn-primary" type="button" value="Guardar" />
+                <input id="petclean-button" class="btn btn-primary" type="button" value="Limpiar" />
+            </div>
+
+            <br /><br /><br /><br />
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-danger">
+                        <th class="column-header column-header-id">ID</th>
+                        <th class="column-header text-right">Fecha de registro</th>
+                        <th class="column-header">Nombre del propietario</th>
+                        <th class="column-header">Nombre de la mascota</th>
+                        <th class="column-header">Edad</th>
+                        <th class="column-header">Especie</th>
+                        <th class="column-header">Tamaño</th>
+                        <th class="column-header">Acciones</th>
+                    </thead>
+                    <tbody id="body-table">
+                        
+                    </tbody>
+                </table>
+            </div>  
+        </div>
+         
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="js/js.js"></script>
+    </body>
 </html>
