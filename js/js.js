@@ -1,5 +1,6 @@
 /*variables*/
 var rowId = 0
+var catBreeds = {}
 /*Manejo y edicion del DOM*/
 /*obtienes elementos del HTML por su id definido*/
 /*Manejo de eventos como .onclick*/
@@ -100,6 +101,7 @@ document.getElementById("show-dogimage").onclick = function(){
 fetch("https://api.thecatapi.com/v1/breeds")
 	.then(responsive => responsive.json())
 	.then(data => {
+		catBreeds = data
 		let catBreed = document.getElementById("catBreed")
 		data.map((breed) => {
 			let option = document.createElement("option")
@@ -111,19 +113,20 @@ fetch("https://api.thecatapi.com/v1/breeds")
 document.getElementById("show-catimage").onclick = function(){
 	let breedSelected = document.getElementById("catBreed").value
 
-	let catID = fetch("https://api.thecatapi.com/v1/breeds")
-	.then(responsive => responsive.json())
-	.then(data => {
-		data.map((breed) => {
-			console.log(breed.id)
-		})
-	})
-	console.log(catID)
-
-	/*fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + catID)
+	let catID = catBreeds.find(breed => breedSelected == breed.name).id
+	fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + catID)
 		.then(response => response.json())
 		.then(data =>{
-			console.log(data.id)
-			let img = document.getElementById("cat-image").setAttribute("src", data.message)
-		});*/
+			let img = document.getElementById("cat-image").setAttribute("src", data[0].url)
+		});
 }
+
+/*
+ *Experimetando con cookies, storage adn IndexedDB
+ */
+
+ document.getElementById("dogBreed").onchange = function (){
+ 	let dogBreed = document.getElementById("dogBreed")
+ 	console.log(dogBreed)
+ 	document.cookie = "Raza del perro seleccionada = " + dogBreed
+ }
