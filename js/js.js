@@ -67,6 +67,9 @@ document.getElementById("show-image").onclick = function(){
 	fetch('https://dog.ceo/api/breeds/image/random')
 		/*Indica que se debe hacer al terminar el llamado de la API, en este caso convertilo a un json*/
 		.then(response => response.json())
-		/*Indica que hacer al recivir datos del seridor en este caso imprimir lo obtenido en consola*/
-		.then(data => console.log(data));
+		/*Indica que hacer al recibir datos del seridor en este caso imprimir lo obtenido en consola*/
+		/*Acceder a los datos del API obtenido, en este caso se hace por medio del data.keyDelJSON*/
+		.then(data =>{
+			let img = document.getElementById("pet-image").setAttribute("src", data.message)
+		});
 }
