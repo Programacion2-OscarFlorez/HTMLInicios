@@ -43,5 +43,6 @@ document.getElementById("petsave-button").onclick = function savePet() {
 	tdActions.appendChild(input2)
 	tr.appendChild(tdActions)
 
+
 	document.getElementById("body-table").appendChild(tr) 
 };
