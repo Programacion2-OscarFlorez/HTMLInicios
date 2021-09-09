@@ -56,20 +56,45 @@ document.getElementById("petsave-button").onclick = function savePet() {
 	tdActions.appendChild(input2)
 	tr.appendChild(tdActions)
 
-
 	document.getElementById("body-table").appendChild(tr) 
 };
+/*Al no estar dentro de una funcion o evento este codigo se ejecuta al cargar la pagina*/
+fetch("https://dog.ceo/api/breeds/list/all")
+	.then(response => response.json())
+	.then(data => {
+		let dogBreed = document.getElementById("dogBreed")
+		Object.keys(data.message).map((breed) =>{
+			let option = document.createElement("option")
+			option.innerHTML = breed
+			dogBreed.appendChild(option)
+		})
+	})	
+fetch("https://api.thecatapi.com/v1/categories")
+	.then(responsive => responsive.json())
+	.then(data => {
+		let catBreed = document.getElementById("catBreed")
+		Object.keys(data.name).map((breed) => {
+			let option = document.createElement("option")
+			option.innerHTML = breed
+			catBreed.appendChild(option)
+		})
+
+	})
+
+
 
 /*Modificando las imagenes de las mascotas boton mostrar Imagen*/
-document.getElementById("show-image").onclick = function(){
+document.getElementById("show-dogimage").onclick = function(){
+
+	let breedSelected = document.getElementById("dogBreed").value
 	/*Documentacion del sitio web MDN Web Docs*/
 		/*llama a la API creando una promise*/
-	fetch('https://dog.ceo/api/breeds/image/random')
+	fetch('https://dog.ceo/api/breed/'+ breedSelected +'/images/random')
 		/*Indica que se debe hacer al terminar el llamado de la API, en este caso convertilo a un json*/
 		.then(response => response.json())
 		/*Indica que hacer al recibir datos del seridor en este caso imprimir lo obtenido en consola*/
 		/*Acceder a los datos del API obtenido, en este caso se hace por medio del data.keyDelJSON*/
 		.then(data =>{
-			let img = document.getElementById("pet-image").setAttribute("src", data.message)
+			let img = document.getElementById("dog-image").setAttribute("src", data.message)
 		});
 }
