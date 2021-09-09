@@ -1,7 +1,10 @@
-
+/*variables*/
 var rowId = 0
+/*Manejo y edicion del DOM*/
+/*obtienes elementos del HTML por su id definido*/
 document.getElementById("petsave-button").onclick = function savePet() {
 	rowId += 1
+	/*Objetos json*/
 	let info = {
 		dateBirth: document.getElementById("date-input").value,
 		nameOwner: document.getElementById("owner-input").value,
@@ -11,13 +14,16 @@ document.getElementById("petsave-button").onclick = function savePet() {
 		speciePet: document.getElementById("petspecies-input").value,
 		sizePet: document.getElementById("petsize-input").value
 	}
-	
+	/*Creacion de elementos para HTML*/
 	let tr = document.createElement("tr")
+	/*Atributos de los elementos creados*/
 	tr.setAttribute("id", "row-" + rowId)
 	let tdId = document.createElement("td")
+	/*Modificacion de texto de los elementos*/
 	tdId.innerHTML = rowId
 	tr.appendChild(tdId)
 
+	/**/
 	Object.keys(info).forEach((key) => {
 		let td = document.createElement("td")
 		td.innerHTML = info[key]
