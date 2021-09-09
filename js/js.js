@@ -82,7 +82,6 @@ fetch("https://api.thecatapi.com/v1/categories")
 	})
 
 
-
 /*Modificando las imagenes de las mascotas boton mostrar Imagen*/
 document.getElementById("show-dogimage").onclick = function(){
 
